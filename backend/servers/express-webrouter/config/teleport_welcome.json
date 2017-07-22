@@ -1,0 +1,54 @@
+{
+  "templates": [
+  {
+    "iconUrl": "https://raw.githubusercontent.com/snipsco/teleport-webpack-react/master/teleport-webpack-react.png",
+    "gitUrl": "https://github.com/snipsco/teleport-webpack-react",
+    "name": "teleport-webpack-react"
+  },
+  {
+    "iconUrl": "https://raw.githubusercontent.com/snipsco/teleport-express-webrouter/master/teleport-express-webrouter.png",
+    "gitUrl": "https://github.com/snipsco/teleport-express-webrouter",
+    "name": "teleport-express-webrouter"
+  },
+  {
+    "iconUrl": "https://raw.githubusercontent.com/snipsco/teleport-flask-websocket/master/teleport-flask-websocket.png",
+    "gitUrl": "https://github.com/snipsco/teleport-flask-websocket",
+    "name": "teleport-flask-websocket"
+  },
+  {
+    "iconUrl": "https://raw.githubusercontent.com/snipsco/teleport/master/platforms/teleport-heroku/teleport-heroku.png",
+    "gitUrl": "https://github.com/snipsco/teleport/tree/master/platforms/teleport-heroku",
+    "name": "teleport-heroku"
+  }
+],
+  "servers": [
+  {
+    "name": "express-webrouter",
+    "types": [
+      {
+        "url": "http://localhost:5000"
+      },
+      {
+        "url": "https://app-cf45f6fc.herokuapp.com"
+      },
+      {
+        "url": "https://staging-app-cf45f6fc.herokuapp.com"
+      }
+    ]
+  },
+  {
+    "name": "flask-websocket",
+    "types": [
+      {
+        "url": "http://localhost:5001"
+      },
+      {
+        "url": "https://app-cf45f6fc-wbs.herokuapp.com"
+      },
+      {
+        "url": "https://staging-app-cf45f6fc-wbs.herokuapp.com"
+      }
+    ]
+  }
+]
+}
