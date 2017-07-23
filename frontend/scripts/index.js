@@ -1,5 +1,4 @@
-// required just for webpack bundling
-require('../styles/index.scss')
+require('./utils/styles')
 
 import createBrowserHistory from 'history/createBrowserHistory'
 import React from 'react'
@@ -30,8 +29,6 @@ export function domReady () {
     })
   })
 }
-
-
 
 domReady().then(() => {
   // actual render app
