@@ -30,7 +30,6 @@ export function render (router) {
     // in the path does not match a known path, so in that
     // case let's return to the home page
     const firstParam = `/${window.location.pathname.split('/')[1]}`
-    console.warn('wrongPageName', pageName)
     return (
       <App wrongPageName={firstParam}>
         <HomePage />
