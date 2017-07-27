@@ -5,6 +5,7 @@ import { applyMiddleware,
 } from 'redux'
 
 import { createMiddlewares } from './middlewares'
+import { createRun } from './run'
 
 export default function createStore ({history, rootReducer}) {
   // MIDDLEWARES
@@ -23,6 +24,9 @@ export default function createStore ({history, rootReducer}) {
     hydratedState,
     storeEnhancer
   )
+
+  // RUN
+  createRun({middlewares, store})
 
   // return
   return store
