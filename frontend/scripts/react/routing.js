@@ -1,9 +1,9 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import { redirectToHome,
-  render } from './navigation'
+import render from './navigation'
 import links from '../utils/links'
+import { redirectToHome } from '../utils/redirection'
 
 export const routes = [
   // ROOT HOME REDIRECT

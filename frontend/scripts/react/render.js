@@ -8,7 +8,7 @@ import { PageComponentsByComponentsName } from './views'
 import { IS_DEV } from '../utils/config'
 import links from '../utils/links'
 
-export function render (router) {
+export default function render (router) {
   // unpack
   const { history,
     location: { pathname, search },
@@ -46,5 +46,3 @@ export function render (router) {
     )
   }
 }
-
-export const redirectToHome = () => '/home'
