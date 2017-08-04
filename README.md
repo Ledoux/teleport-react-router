@@ -3,10 +3,10 @@
 
 <table>
   <td>
-    <img src="https://raw.githubusercontent.com/snipsco/teleport-react-router/master/icon.png" alt="icon" title="made by @cecilesnips"/>
+    <img src="https://raw.githubusercontent.com/Ledoux/teleport-react-router/master/icon.png" alt="icon" title="made by @cecilesnips"/>
   </td>
   <td>
-    <img src="https://raw.githubusercontent.com/snipsco/teleport-react-router/master/teleport-react-router.png" alt="icon" title="made by @cecilesnips"/>
+    <img src="https://raw.githubusercontent.com/Ledoux/teleport-react-router/master/teleport-react-router.png" alt="icon" title="made by @cecilesnips"/>
   </td>
   <td>
     A <a href="https://github.com/snipsco/teleport"> Teleport </a> frontend template to integrate a react-router pages manager system
