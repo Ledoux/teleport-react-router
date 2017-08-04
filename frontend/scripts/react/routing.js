@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import render from './navigation'
+import render from './render'
 import links from '../utils/links'
 import { redirectToHome } from '../utils/redirection'
 
