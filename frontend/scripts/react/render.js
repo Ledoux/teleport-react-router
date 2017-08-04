@@ -8,7 +8,7 @@ import { PageComponentsByComponentsName } from './views'
 import { IS_DEVELOPMENT } from '../utils/config'
 import links from '../utils/links'
 
-export default function render (router, config) {
+export default function render (router, config = {}) {
   // unpack
   const { history,
     location: { pathname, search },
