@@ -6,6 +6,8 @@ import ReactDOMServer from 'react-dom/server'
 
 import Root from '../frontend/scripts/react/containers/Root'
 import rootReducer from '../frontend/scripts/reducers'
+import { BASE_NAME } from '../frontend/scripts/utils/config'
+import createStore from '../frontend/scripts/utils/store'
 import serverConfig from './server.config.js'
 
 // HISTORY
@@ -24,10 +26,7 @@ function serverSideRender (stats) {
       ${renderedBody}
     </div>`
   const fileDir = path.join(serverConfig.contentBase, '_body.html')
-  console.log('fileDir', fileDir)
-  fs.writeFileSync(fileDir, bodyHTML)
+  // fs.writeFileSync(fileDir, bodyHTML)
 }
-
-serverSideRender()
 
 export default serverSideRender

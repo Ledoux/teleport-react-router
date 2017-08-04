@@ -1,6 +1,8 @@
-const serverSideRender = require('./serverSideRender.js')
+require('babel-register')
+const serverSideRender = require('./serverSideRender.js').default
 
 function onProdDone (stats) {
   serverSideRender(stats)
 }
-export default onProdDone
+
+module.exports = onProdDone
