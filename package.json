@@ -16,5 +16,9 @@
 	"devDependencies": {
 	},
 	"name": "teleport-react-router",
-	"version": "0.0.9"
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/Ledoux/teleport-react-router"
+  },
+	"version": "0.0.10"
 }
