@@ -5,7 +5,7 @@ import { Redirect } from 'react-router'
 import App from './containers/App'
 import HomePage from './pages/HomePage'
 import { PageComponentsByComponentsName } from './views'
-import { IS_DEV } from '../utils/config'
+import { IS_DEVELOPMENT } from '../utils/config'
 import links from '../utils/links'
 
 export default function render (router, config) {
@@ -48,7 +48,7 @@ export default function render (router, config) {
       </App>
     )
   } else {
-    if (IS_DEV) {
+    if (IS_DEVELOPMENT) {
       console.warn(`Did not find a page like ${componentName} in PageComponentsByComponentsName`)
     }
     // maybe the user typed something for which the first param
