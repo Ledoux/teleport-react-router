@@ -12,8 +12,8 @@ export default function createStore ({history, rootReducer}) {
   const middlewares = createMiddlewares({history, rootReducer})
 
   // ENHANCERS
-  const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
-  const hydratedState = (window && window.__INITIAL_STATE__) || {}
+  const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+  const hydratedState = (typeof window !== 'undefined' && window.__INITIAL_STATE__) || {}
   const storeEnhancer = composeEnhancers(
     applyMiddleware(...middlewares)
   )
