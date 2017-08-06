@@ -1,3 +1,4 @@
+require('babel-polyfill')
 require('babel-register')
 const serverSideRender = require('./serverSideRender.js').default
 
