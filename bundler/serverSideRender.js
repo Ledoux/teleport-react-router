@@ -5,21 +5,36 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
 import Root from '../frontend/scripts/react/containers/Root'
-import rootReducer from '../frontend/scripts/reducers'
-import { BASE_NAME } from '../frontend/scripts/utils/config'
+import createRootReducer from '../frontend/scripts/reducers'
+import config from '../frontend/scripts/utils/config'
 import createStore from '../frontend/scripts/utils/store'
 import serverConfig from './server.config.js'
 
+// SETUP
+const setup = Object.assign({}, config)
+
+// STATE
+const initialState = {}
+
 // HISTORY
-const history = createMemoryHistory({ basename: BASE_NAME })
+const history = createMemoryHistory({ basename: '/' })
+
+// REDUCER
+const rootReducer = createRootReducer({ initialState,
+  setup
+})
 
 // STORE
-const store = createStore({ history, rootReducer })
+const store = createStore({ history,
+  initialState,
+  rootReducer,
+  setup
+})
 
 // RENDER
 function serverSideRender (stats) {
-  const renderedBody = ReactDOMServer.renderToString(<Root
-    history={history}
+  const renderedBody = ReactDOMServer.renderToString(<Root history={history}
+    setup={setup}
     store={store}
   />)
   const bodyHTML = `<div id="app_div">
