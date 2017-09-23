@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { ConnectedRouter } from 'react-router-redux'
 
 import App from './App'
 import { createRoutes } from '../routes'
@@ -13,25 +11,32 @@ class Root extends Component {
   }
   render () {
     const { history,
+      ProviderComponent,
+      RouterComponent,
       setup,
       store
     } = this.props
     const { routes } = this.state
-    return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <App setup={setup}>
-            {
-              routes && routes.map((route, index) =>
-                <Route key={index}
-                  {...route}
-                />
-              )
-            }
-          </App>
-        </ConnectedRouter>
-      </Provider>
+    const RouterElement = (
+      <RouterComponent history={history}>
+        <App setup={setup}>
+          {
+            routes && routes.map((route, index) =>
+              <Route key={index}
+                {...route}
+              />
+            )
+          }
+        </App>
+      </RouterComponent>
     )
+    return ProviderComponent
+    ? (
+        <ProviderComponent store={store}>
+          {RouterElement}
+        </ProviderComponent>
+      )
+    : RouterElement
   }
 }
 

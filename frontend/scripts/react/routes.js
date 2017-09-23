@@ -1,6 +1,5 @@
 import React from 'react'
 import { Redirect } from 'react-router'
-import { getLocationSearch } from 'transactions-interface-state'
 
 import render from './render'
 import links from '../utils/links'
