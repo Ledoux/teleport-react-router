@@ -3,10 +3,10 @@ import { Redirect } from 'react-router'
 
 import render from './render'
 import links from '../utils/links'
+import { getPageProps } from './utils/page'
 import { redirectToHome,
   redirectToHomeWithWarning
 } from '../utils/redirection'
-import { getPageProps } from './page'
 
 export function createRoutes (config = {}) {
   const { setup } = config
