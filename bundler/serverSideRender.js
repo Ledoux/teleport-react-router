@@ -4,39 +4,16 @@ import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
+import serverConfig from './server.config'
 import Root from '../frontend/scripts/react/containers/Root'
-import createRootReducer from '../frontend/scripts/reducers'
-import config from '../frontend/scripts/utils/config'
-import createStore from '../frontend/scripts/utils/store'
-import serverConfig from './server.config.js'
+import createRoot from '../frontend/scripts/utils/root'
 
-// SETUP
-const setup = Object.assign({}, config)
-
-// STATE
-const initialState = {}
-
-// HISTORY
-const history = createMemoryHistory({ basename: '/' })
-
-// REDUCER
-const rootReducer = createRootReducer({ initialState,
-  setup
-})
-
-// STORE
-const store = createStore({ history,
-  initialState,
-  rootReducer,
-  setup
-})
+// ROOT
+const root = createRoot(createMemoryHistory({ basename: '/' }))
 
 // RENDER
 function serverSideRender (stats) {
-  const renderedBody = ReactDOMServer.renderToString(<Root history={history}
-    setup={setup}
-    store={store}
-  />)
+  const renderedBody = ReactDOMServer.renderToString(<Root {...root} />)
   const bodyHTML = `<div id="app_div">
       ${renderedBody}
     </div>`
