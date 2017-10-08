@@ -6,11 +6,7 @@ import links from '../utils/links'
 import { redirectToHome,
   redirectToHomeWithWarning
 } from '../utils/redirection'
-
-function getPageProps (router, setup) {
-  const { match: { params } } = router
-  return Object.assign({}, setup, params)
-}
+import { getPageProps } from './page'
 
 export function createRoutes (config = {}) {
   const { setup } = config
@@ -23,17 +19,28 @@ export function createRoutes (config = {}) {
       render: () => <Redirect to={redirectToHome()} />
     }
   ].concat(links.map(path => {
-    return { exact: true,
+    return {
+      exact: true,
       path,
       render: router => render(router, { getPageProps,
         setup
       })
     }
-  })).concat(Object.keys(api)
+  })).concat([
+    // WRONG TOO MANY SLASHES URLS WARNING REDIRECTS
+    {
+      exact: true,
+      path: `${links.slice(-1)[0]}/*`,
+      render: ({ match }) =>
+        <Redirect to={redirectToHomeWithWarning(match)} />
+    }
+  ]).concat(Object.keys(api)
     // APIS HOME WARNING REDIRECTS
     .map(path => {
-      return { path: `${path}/*`, render: ({ match }) =>
-        <Redirect to={redirectToHomeWithWarning(match)} /> }
+      return { path: `${path}/*`,
+        render: ({ match }) =>
+          <Redirect to={redirectToHomeWithWarning(match)} />
+      }
     })
   )
 }
