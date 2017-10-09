@@ -3,8 +3,7 @@ import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
-import prodConfig from './prod.config'
-import serverConfig from './server.config'
+import { contentBase } from './server.config'
 import Root from '../frontend/scripts/react/containers/Root'
 import root from '../frontend/scripts/roots/server.root'
 
@@ -14,7 +13,7 @@ function serverSideRender (stats) {
   const bodyHTML = `<div id="app_div">
       ${renderedBody}
     </div>`
-  const fileDir = path.join(prodConfig.contentBase, '_body.html')
+  const fileDir = path.join(contentBase, '_body.html')
   // fs.writeFileSync(fileDir, bodyHTML)
 }
 
