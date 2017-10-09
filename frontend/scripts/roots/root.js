@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 
+import createRootReducer from '../reducers'
 import config from '../utils/config'
 import createStore from '../utils/store'
-import createRootReducer from '../reducers'
 
 export function createRoot (history) {
   const setup = Object.assign({}, config,
