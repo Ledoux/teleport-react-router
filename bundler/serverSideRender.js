@@ -1,4 +1,3 @@
-import createMemoryHistory from 'history/createMemoryHistory'
 import fs from 'fs'
 import path from 'path'
 import React from 'react'
@@ -7,10 +6,7 @@ import ReactDOMServer from 'react-dom/server'
 import prodConfig from './prod.config'
 import serverConfig from './server.config'
 import Root from '../frontend/scripts/react/containers/Root'
-import createRoot from '../frontend/scripts/utils/root'
-
-// ROOT
-const root = createRoot(createMemoryHistory({ basename: '/' }))
+import root from '../frontend/scripts/roots/server.root'
 
 // RENDER
 function serverSideRender (stats) {
