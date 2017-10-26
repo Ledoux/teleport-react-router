@@ -1,15 +1,16 @@
 import React from 'react'
-import { Redirect } from 'react-router'
 
-import render from './render'
-import links from '../utils/links'
-import { getPageProps } from '../utils/page'
+import links from './links'
 import { redirectToHome,
   redirectToHomeWithWarning
-} from '../utils/redirection'
+} from './redirection'
+import { getPageProps } from './page'
 
-export function createRoutes (config = {}) {
-  const { setup } = config
+function createRoutes (config = {}) {
+  const { Redirect,
+    render,
+    setup
+  } = config
   const api = setup.api || {}
   return [
     // ROOT HOME REDIRECT
@@ -44,3 +45,5 @@ export function createRoutes (config = {}) {
     })
   )
 }
+
+export default createRoutes
