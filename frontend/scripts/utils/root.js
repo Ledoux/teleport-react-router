@@ -1,19 +1,24 @@
 import React from 'react'
 
-import config from './config'
+import context from './context'
+import createPage from './page'
 import createRoutes from './routes'
 import createRender from './render'
 
-function createRoot ({ App,
-  history,
-  Route,
-  Router
-}) {
+function createRoot (config) {
 
-  const setup = Object.assign({}, config,
+  const { App,
+    history,
+    Route,
+    Router
+  } = config
+
+  const setup = Object.assign({}, context,
     typeof window !== 'undefined' && window.__SETUP__)
 
-  const render = createRender(config)
+  const Page = createPage()
+
+  const render = createRender(Object.assign({ Page }, config))
 
   const routes = createRoutes(Object.assign({ render, setup }, config))
 

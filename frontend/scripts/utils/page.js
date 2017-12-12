@@ -1,4 +1,12 @@
-export function getPageProps (router, setup) {
-  const { match: { params } } = router
-  return Object.assign({}, setup, params)
+import React, { Component } from 'react'
+
+function createPage () {
+  class Page extends Component {
+    render () {
+      return this.props.children
+    }
+  }
+  return Page
 }
+
+export default createPage

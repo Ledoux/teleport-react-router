@@ -9,12 +9,10 @@
 		"history": "^4.6.1",
 		"react-router-dom": "^4.0.0"
 	},
-	"devDependencies": {
-	},
 	"name": "teleport-react-router",
 	"repository": {
     "type": "git",
     "url": "https://github.com/Ledoux/teleport-react-router"
   },
-	"version": "0.0.33"
+	"version": "0.0.35"
 }

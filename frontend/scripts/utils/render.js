@@ -1,36 +1,35 @@
 import React from 'react'
 
-import links from '../utils/links'
+import links from './links'
+import { getRedirectPathname } from './redirection'
 
-export default function createRender ({ PageComponentsByName,
+export default function createRender ({ Page,
+  PageComponentsByName,
   Redirect
 }) {
-  const HomePage = PageComponentsByName.home
   function render (router, config = {}) {
     // unpack
     const { match: { params } } = router
     const { pageName } = params
-    const { getPageProps,
-      getRedirectPathname,
-      setup
-    } = config
+    const HomePage = PageComponentsByName.home
     // redirect
     const redirectPathName = getRedirectPathname && getRedirectPathname(router, config)
     if (redirectPathName) {
       return <Redirect to={redirectPathname} />
     }
-    // special content case which is not a page
+    // page
     const PageComponent = PageComponentsByName[pageName]
-    // PageComponent
-    if (PageComponent) {
-      // page props
-      const pageProps = getPageProps && getPageProps(router, setup)
-      // return
-      return <PageComponent {...pageProps} />
-    } else {
-      console.warn(`Did not find a page like ${componentName} in PageComponentsByComponentsName`)
-      return <HomePage wrongPageName={pageName} />
+    const pageElement = PageComponent
+      ? <PageComponent {...params} />
+      : <HomePage wrongPageName={pageName} />
+    if (!PageComponent) {
+      console.warn(`Did not find a page like ${pageName}`)
     }
+    return (
+      <Page params={params}>
+        {pageElement}
+      </Page>
+    )
   }
   return render
 }
