@@ -23,9 +23,7 @@ function createRoutes (config = {}) {
     return {
       exact: true,
       path,
-      render: router => render(router, { getPageProps,
-        setup
-      })
+      render: router => render(router, config)
     }
   })).concat([
     // WRONG TOO MANY SLASHES URLS WARNING REDIRECTS
